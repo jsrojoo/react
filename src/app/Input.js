@@ -3,20 +3,31 @@
  */
 
 import React from 'react'
+import {Icon, Input} from 'semantic-ui-react'
 
-
-const Input = (props) => {
+const TodoInput = (props) => {
     return (
         <div>
-            <input
+            <Input
                 type="text"
+                placeholder="Add Task.."
+                icon={
+                    <Icon
+                        name="plus"
+                        inverted circular link
+                        onClick={props.addHandler}
+                    />
+                }
                 onChange={props.textChangeHandler}
                 value={props.todo}
+                onKeyPress={(event) => {
+                    if (event.key === 'Enter')
+                        props.addHandler();
+
+                }}
             />
-            <button onClick={props.addHandler}>Add</button>
         </div>
     );
 };
 
-
-export default Input;
+export default TodoInput;

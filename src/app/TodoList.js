@@ -2,16 +2,20 @@
  * Created by rojo on 5/6/17.
  */
 import React from 'react'
+import {Segment} from 'semantic-ui-react';
 
 const TodoList = (props) => {
     return (
-        <ul>
+        <Segment.Group>
             {props.todos.map((todo, index) => {
                 return (
-                    <li key={index}>{todo}</li>
+                    <Segment key={index}>
+                        {todo}
+                    </Segment>
                 );
             })}
-        </ul>
+        </Segment.Group>
+
     );
 };
 

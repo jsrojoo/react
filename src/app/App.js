@@ -36,9 +36,10 @@ class App extends Component {
 
 
     addTodoHandler = () => {
-        this.addNewTodo()
-            .updateTodos()
-            .resetTodo();
+        if (this.state.todo !== "")
+            this.addNewTodo()
+                .updateTodos()
+                .resetTodo();
     };
 
     textChangeHandler = (event) => {

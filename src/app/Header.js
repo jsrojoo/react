@@ -3,9 +3,28 @@
  */
 
 import React from 'react';
+import {Header} from 'semantic-ui-react'
 
-const Header = () => {
-    return <h1>Todo App</h1>;
+const TodoHeader = () => {
+
+    let wrapperStyle = {
+        width: "100%",
+        textAlign: "center",
+        marginBottom: "20px"
+    };
+
+    return (
+        <div style={wrapperStyle}>
+            <Header
+                as='h1'
+                block
+                inverted
+                color='red'
+            >
+                Todo App
+            </Header>
+        </div>
+    );
 };
 
-export default Header;
+export default TodoHeader;
