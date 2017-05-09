@@ -4,19 +4,22 @@
 import React from 'react'
 import {Segment} from 'semantic-ui-react';
 
-const TodoList = (props) => {
-    return (
-        <Segment.Group>
-            {props.todos.map((todo, index) => {
-                return (
-                    <Segment key={index}>
-                        {todo}
-                    </Segment>
-                );
-            })}
-        </Segment.Group>
+class TodoList extends React.Component {
 
-    );
-};
+    render() {
+        return (
+            <Segment.Group>
+                {this.props.todos.map((todo, index) => {
+                    return (
+                        <Segment key={index}>
+                            <h3>{todo.what}</h3>
+                            <span>{todo.when.toLocaleString()}</span>
+                        </Segment>
+                    );
+                })}
+            </Segment.Group>
+        );
+    }
+}
 
 export default TodoList;

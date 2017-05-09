@@ -10,7 +10,11 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            todo: "",
+            todo: {
+                what: "",
+                when: new Date(),
+                completed: false
+            },
             todos: []
         };
     }
@@ -29,7 +33,11 @@ class App extends Component {
 
     resetTodo() {
         this.setState({
-            todo: ""
+            todo: {
+                what: "",
+                when: new Date(),
+                completed: false
+            }
         });
         return this;
     }
@@ -44,21 +52,25 @@ class App extends Component {
 
     textChangeHandler = (event) => {
         this.setState({
-            todo: event.target.value
+            todo: {
+                what: event.target.value,
+                when: new Date(),
+                completed: false
+            }
         });
     };
-
 
     render() {
         return (
             <FlexContainer>
                 <Header/>
                 <Input
-                    todo={this.state.todo}
+                    todo={this.state.todo.what}
                     addHandler={this.addTodoHandler}
                     textChangeHandler={this.textChangeHandler}
                 />
-                <TodoList todos={this.state.todos}/>
+                <TodoList
+                    todos={this.state.todos}/>
             </FlexContainer>
         );
     }
