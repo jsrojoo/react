@@ -6,14 +6,43 @@ import {Segment} from 'semantic-ui-react';
 
 class TodoList extends React.Component {
 
+    constructor() {
+        super();
+        this.state = {
+            todos: []
+        };
+    }
+
+    componentWillMount() {
+        this.setState({
+            todos: this.props.todos
+        })
+    }
+
     render() {
         return (
             <Segment.Group>
-                {this.props.todos.map((todo, index) => {
+                {this.state.todos.map((todo, index) => {
+
+                    let completedStyle = todo.completed ? {
+                        color: "#2ECC40"
+                    } : null;
+
                     return (
                         <Segment key={index}>
-                            <h3>{todo.what}</h3>
-                            <span>{todo.when.toLocaleString()}</span>
+                            <h3 onClick={() => {
+                                this.state.todos[index].completed = !this.state.todos[index].completed;
+
+                                this.setState({
+                                    todos: this.state.todos
+                                });
+                            }}
+                                style={completedStyle}>
+                                {todo.what}
+                            </h3>
+                            <span>
+                                {todo.when.toLocaleString()}
+                            </span>
                         </Segment>
                     );
                 })}

@@ -4,18 +4,21 @@ import Header from './Header';
 import Input from './Input'
 import FlexContainer from './FlexContainer'
 import TodoList from './TodoList'
+import Todo from '../model/Todo'
 
 class App extends Component {
 
     constructor() {
         super();
         this.state = {
-            todo: {
-                what: "",
-                when: new Date(),
-                completed: false
-            },
-            todos: []
+            todo: new Todo(""),
+            todos: [
+                new Todo("Improved Todo App UI", true),
+                new Todo("Add feature to mark todo items as done", true),
+                new Todo("Add additional info when adding a Task such as date, location, etc. - (partially)"),
+                new Todo("Deploy to Heroku", true),
+                new Todo("Save data somewhere using new tech"),
+            ]
         };
     }
 
@@ -33,30 +36,26 @@ class App extends Component {
 
     resetTodo() {
         this.setState({
-            todo: {
-                what: "",
-                when: new Date(),
-                completed: false
-            }
+            todo: new Todo("")
         });
         return this;
     }
 
 
     addTodoHandler = () => {
-        if (this.state.todo !== "")
+
+        let todoEntryIsNotEmpty = this.state.todo !== "";
+
+        if (todoEntryIsNotEmpty)
             this.addNewTodo()
                 .updateTodos()
                 .resetTodo();
+
     };
 
     textChangeHandler = (event) => {
         this.setState({
-            todo: {
-                what: event.target.value,
-                when: new Date(),
-                completed: false
-            }
+            todo: new Todo(event.target.value)
         });
     };
 

@@ -18,10 +18,10 @@ const TodoHeader = () => {
             <Header
                 as='h1'
                 block
-                inverted
                 color='red'
+                content="Todo App"
             >
-                Todo App
+
             </Header>
         </div>
     );
