@@ -22,8 +22,8 @@ class TodoList extends React.Component {
     render() {
         return (
             <Segment.Group style={{
-                position:"absolute",
-                top:"200px"
+                flex : "1 1 60vh",
+                overflow:"auto",
             }}>
                 {this.state.todos.map((todo, index) => {
 
