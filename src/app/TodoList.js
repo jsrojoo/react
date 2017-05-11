@@ -21,7 +21,10 @@ class TodoList extends React.Component {
 
     render() {
         return (
-            <Segment.Group>
+            <Segment.Group style={{
+                position:"absolute",
+                top:"200px"
+            }}>
                 {this.state.todos.map((todo, index) => {
 
                     let completedStyle = todo.completed ? {

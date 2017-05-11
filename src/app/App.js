@@ -18,6 +18,7 @@ class App extends Component {
                 new Todo("Add additional info when adding a Task such as date, location, etc. - (partially)"),
                 new Todo("Deploy to Heroku", true),
                 new Todo("Save data somewhere using new tech"),
+                new Todo("Sort todo based on latest entry", true),
             ]
         };
     }
@@ -64,18 +65,17 @@ class App extends Component {
             <FlexContainer style={{
                 flexDirection: "column",
             }}>
-                <FlexContainer style={{
-                    flexDirection: "column"
-                }}>
-                    <Header/>
-                    <Input
-                        todo={this.state.todo.what}
-                        addHandler={this.addTodoHandler}
-                        textChangeHandler={this.textChangeHandler}
-                    />
-                </FlexContainer>
+
+                <Header/>
+                <Input
+                    todo={this.state.todo.what}
+                    addHandler={this.addTodoHandler}
+                    textChangeHandler={this.textChangeHandler}
+                />
+
                 <TodoList
                     todos={this.state.todos}/>
+
             </FlexContainer>
         );
     }
