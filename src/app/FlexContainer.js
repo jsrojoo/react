@@ -9,7 +9,7 @@ const FlexContainer = (props) => {
     let containerStyle = {
         display: "flex",
         alignItems: "center",
-        flexDirection: "column",
+        ...props.style
     };
 
     return (

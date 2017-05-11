@@ -61,13 +61,19 @@ class App extends Component {
 
     render() {
         return (
-            <FlexContainer>
-                <Header/>
-                <Input
-                    todo={this.state.todo.what}
-                    addHandler={this.addTodoHandler}
-                    textChangeHandler={this.textChangeHandler}
-                />
+            <FlexContainer style={{
+                flexDirection: "column",
+            }}>
+                <FlexContainer style={{
+                    flexDirection: "column"
+                }}>
+                    <Header/>
+                    <Input
+                        todo={this.state.todo.what}
+                        addHandler={this.addTodoHandler}
+                        textChangeHandler={this.textChangeHandler}
+                    />
+                </FlexContainer>
                 <TodoList
                     todos={this.state.todos}/>
             </FlexContainer>

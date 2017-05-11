@@ -45,7 +45,7 @@ class TodoList extends React.Component {
                             </span>
                         </Segment>
                     );
-                })}
+                }).reverse()}
             </Segment.Group>
         );
     }

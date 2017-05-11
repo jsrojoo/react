@@ -3,24 +3,24 @@
  */
 
 import React from 'react';
-import {Header} from 'semantic-ui-react'
+import {Header, Icon} from 'semantic-ui-react'
 
 const TodoHeader = () => {
 
     let wrapperStyle = {
         width: "100%",
         textAlign: "center",
-        marginBottom: "20px"
     };
 
     return (
         <div style={wrapperStyle}>
             <Header
-                as='h1'
-                block
+                as='h2'
                 color='red'
-                content="Todo App"
+                icon
             >
+                <Icon color="black" name="write"/>
+                Stuff to do
 
             </Header>
         </div>
