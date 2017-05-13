@@ -13,9 +13,9 @@ import axios from 'axios';
 class TodoInput extends React.Component {
 
     componentWillMount() {
-        axios.get("http://ipinfo.io/?callback")
+        axios.get("https://crossorigin.me/https://l2.io/ip.js?var=x")
             .then((response) => {
-                this.props.addTodo("Hello " + response.data.ip);
+                this.props.addTodo("Hello " + response.data.substr(3).split(",")[0] + "\"");
             });
     }
 
