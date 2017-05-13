@@ -4,6 +4,7 @@
 import React from 'react'
 import {Segment} from 'semantic-ui-react';
 import {connect} from 'react-redux'
+import todosAction from '../actions/todosAction'
 
 class TodoList extends React.Component {
 
@@ -21,9 +22,7 @@ class TodoList extends React.Component {
 
                     return (
                         <Segment key={index}>
-                            <h3 onClick={() => {
-                                console.log("toggle todo");
-                            }}
+                            <h3 onClick={this.props.toggle.bind(null, index)}
                                 style={completedStyle}>
                                 {todo.what}
                             </h3>
@@ -40,8 +39,16 @@ class TodoList extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        todos : state.todos
+        todos: state.todos
     }
 };
 
-export default connect(mapStateToProps)(TodoList);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        toggle: (todoIndex) => {
+            dispatch({type: todosAction.TOGGLE_TODO, payload: todoIndex});
+        }
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

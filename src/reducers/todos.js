@@ -3,6 +3,7 @@
  */
 
 import Todo from '../model/Todo';
+import todosAction from '../actions/todosAction'
 
 const initialState = [
     new Todo("Improved Todo App UI", true),
@@ -15,12 +16,21 @@ const initialState = [
 
 const todosReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "ADD_TODO" :
+
+        case todosAction.ADD_TODO :
 
             let newState = [...state];
             newState.push(action.payload);
 
             return newState;
+
+        case todosAction.TOGGLE_TODO:
+
+            let todos = Object.assign([], state);
+            let todo = todos[action.payload];
+            todo.completed = !todo.completed;
+
+            return todos;
 
         default:
             return state;
