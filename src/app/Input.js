@@ -19,7 +19,7 @@ const TodoInput = (props) => {
                     />
                 }
                 onChange={props.textChangeHandler}
-                value={props.todo}
+                value={props.todoReducer}
                 onKeyPress={(event) => {
                     if (event.key === 'Enter')
                         props.addHandler();

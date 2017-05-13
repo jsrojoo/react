@@ -3,29 +3,17 @@
  */
 import React from 'react'
 import {Segment} from 'semantic-ui-react';
+import {connect} from 'react-redux'
 
 class TodoList extends React.Component {
-
-    constructor() {
-        super();
-        this.state = {
-            todos: []
-        };
-    }
-
-    componentWillMount() {
-        this.setState({
-            todos: this.props.todos
-        })
-    }
 
     render() {
         return (
             <Segment.Group style={{
-                flex : "1 1 60vh",
-                overflow:"auto",
+                flex: "1 1 60vh",
+                overflow: "auto",
             }}>
-                {this.state.todos.map((todo, index) => {
+                {this.props.todos.map((todo, index) => {
 
                     let completedStyle = todo.completed ? {
                         color: "#2ECC40"
@@ -34,11 +22,7 @@ class TodoList extends React.Component {
                     return (
                         <Segment key={index}>
                             <h3 onClick={() => {
-                                this.state.todos[index].completed = !this.state.todos[index].completed;
-
-                                this.setState({
-                                    todos: this.state.todos
-                                });
+                                console.log("toggle todo");
                             }}
                                 style={completedStyle}>
                                 {todo.what}
@@ -54,4 +38,10 @@ class TodoList extends React.Component {
     }
 }
 
-export default TodoList;
+const mapStateToProps = (state) => {
+    return {
+        todos : state.todos
+    }
+};
+
+export default connect(mapStateToProps)(TodoList);
