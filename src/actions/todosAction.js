@@ -3,6 +3,8 @@
  */
 
 const actions = {
-    ADD: "ADD_TODO",
-    TOGGLE: "TOGGLE_TODO"
+    ADD_TODO: "ADD_TODO",
+    TOGGLE_TODO: "TOGGLE_TODO"
 };
+
+export default actions;
