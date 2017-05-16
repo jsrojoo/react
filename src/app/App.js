@@ -14,12 +14,8 @@ class App extends Component {
                 flexDirection: "column",
             }}>
                 <Header/>
-                <Input
-                    todo={this.props.todo.what}
-                />
-                <TodoList
-                    todos={this.props.todos}
-                />
+                <Input todo={this.props.todo.what}/>
+                <TodoList todos={this.props.todos}/>
             </FlexContainer>
         );
     }
